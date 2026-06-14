@@ -1,93 +1,114 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SmartClinic Login</title>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <style>
+        *{
+            box-sizing:border-box;
+        }
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-        <style>
-        .auth-body{
+        body{
             margin:0;
             min-height:100vh;
             background:#f4f8fb;
             font-family:Arial, sans-serif;
-        }
-
-        .auth-wrapper{
-            width:100%;
-            overflow-x:hidden;
-        }
-
-        .auth-card{
-            width:90% !important;
-            max-width:420px !important;
-            margin:0 auto !important;
-            box-sizing:border-box;
-        }
-
-        .auth-card input[type="email"],
-        .auth-card input[type="password"],
-        .auth-card input[type="text"],
-        .auth-card select{
-            width:100% !important;
-            box-sizing:border-box;
-        }
-
-        .auth-card .flex,
-        .auth-card .items-center,
-        .auth-card .justify-end{
             display:flex;
-            flex-wrap:wrap;
-            gap:12px;
+            justify-content:center;
+            align-items:center;
+            padding:20px;
         }
 
-        .auth-card input[type="checkbox"]{
-            width:16px !important;
-            height:16px !important;
+        .auth-box{
+            width:100%;
+            max-width:420px;
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 20px 50px rgba(0,0,0,.08);
+        }
+
+        .auth-logo{
+            width:70px;
+            display:block;
+            margin:0 auto 25px;
+        }
+
+        label{
+            font-weight:600;
+            margin-bottom:6px;
+            display:block;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"],
+        select{
+            width:100%;
+            padding:12px;
+            border:1px solid #dce3ea;
+            border-radius:12px;
+            margin-bottom:15px;
+        }
+
+        input[type="checkbox"]{
+            width:16px;
+            height:16px;
+            margin-right:8px;
+        }
+
+        button{
+            background:#0d6efd;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:50px;
+            font-weight:700;
+            cursor:pointer;
+        }
+
+        a{
+            color:#0d6efd;
+        }
+
+        .flex{
+            display:flex;
+            align-items:center;
+            gap:12px;
+            flex-wrap:wrap;
+        }
+
+        .justify-end{
+            justify-content:space-between;
         }
 
         @media(max-width:576px){
-            .auth-card{
-                padding:25px 20px !important;
-                border-radius:20px !important;
+            body{
+                align-items:center;
             }
 
-            .auth-card button{
+            .auth-box{
+                padding:25px 20px;
+            }
+
+            button{
                 width:100%;
-                margin-top:15px;
-            }
-
-            .auth-card a{
-                display:block;
-                margin-bottom:10px;
             }
         }
     </style>
-    </head>
-        <body class="auth-body">
+</head>
 
-        <div class="auth-wrapper">
+<body>
 
-            <a href="/">
-                <img src="{{ asset('images/logo.png') }}"
-                    class="auth-logo"
-                    alt="SmartClinic Logo">
-            </a>
+    <div>
+        <img src="{{ asset('images/logo.png') }}" class="auth-logo">
 
-            <div class="auth-card">
-                {{ $slot }}
-            </div>
-
+        <div class="auth-box">
+            {{ $slot }}
         </div>
+    </div>
 
-    </body>
+</body>
 </html>

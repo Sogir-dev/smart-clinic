@@ -1042,7 +1042,7 @@
                     ),
                     url('/images/hero6.jpg');
                 background-size: cover;
-                background-position: center top;
+                background-position: 70% center !important;
                 background-repeat: no-repeat;
             }
 
