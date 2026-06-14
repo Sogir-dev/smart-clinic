@@ -1067,7 +1067,7 @@
             @media(max-width:768px){
     .hero-content{
         padding-top:25px !important;
-        transform:translateY(-45px);
+        transform:translateY(30px);
     }
 
     .hero-badge{
