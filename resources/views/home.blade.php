@@ -668,7 +668,7 @@
                         <span>📞</span>
                         <div>
                             <strong>Phone</strong>
-                            <p>+234 800 000 0000</p>
+                            <p>+234 902 767 6273</p>
                         </div>
                     </div>
 

@@ -1267,7 +1267,7 @@
                 <div class="footer-card">
                     <h5>Contact</h5>
                     <p>📍 Ilorin, Kwara State, Nigeria</p>
-                    <p>📞 +234 800 000 0000</p>
+                    <p>📞 +234 902 767 6273</p>
                     <p>📧 support@smartclinic.com</p>
                 </div>
             </div>
