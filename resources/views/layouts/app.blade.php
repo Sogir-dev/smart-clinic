@@ -1064,6 +1064,17 @@
                 text-align: left;
             }
 
+            @media(max-width:768px){
+    .hero-content{
+        padding-top:25px !important;
+        transform:translateY(-45px);
+    }
+
+    .hero-badge{
+        margin-bottom:18px !important;
+    }
+}
+
             .hero-badge {
                 display: inline-block !important;
                 width: auto !important;
@@ -1227,6 +1238,8 @@
     !request()->is('reject/*') &&
     !request()->is('reschedule/*') &&
     !request()->is('admin/messages*') &&
+    !request()->is('staff*') &&
+    !request()->is('department*') &&
     !request()->is('profile')
 )
 
