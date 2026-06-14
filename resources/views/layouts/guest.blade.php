@@ -15,73 +15,89 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <style>
-    svg{
-        max-width:90px !important;
-        height:auto !important;
-    }
+        .auth-body{
+            margin:0;
+            min-height:100vh;
+            background:#f4f8fb;
+            font-family:Arial, sans-serif;
+        }
 
-    body{
-        font-family: Arial, sans-serif;
-        background:#f4f8fb;
-    }
+        .auth-wrapper{
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            padding:30px 15px;
+        }
 
-    form{
-        max-width:420px;
-        margin:30px auto;
-        background:#fff;
-        padding:30px;
-        border-radius:16px;
-        box-shadow:0 15px 40px rgba(0,0,0,.08);
-    }
+        .auth-logo{
+            width:85px;
+            height:auto;
+            margin-bottom:25px;
+        }
 
-    label{
-        font-weight:600;
-        display:block;
-        margin-top:12px;
-    }
+        .auth-card{
+            width:100%;
+            max-width:430px;
+            background:#fff;
+            padding:35px;
+            border-radius:18px;
+            box-shadow:0 20px 50px rgba(0,0,0,.08);
+        }
 
-    input[type="email"],
-    input[type="password"],
-    input[type="text"],
-    select{
-        width:100%;
-        padding:12px;
-        border:1px solid #ddd;
-        border-radius:10px;
-        margin-top:6px;
-    }
+        .auth-card input[type="email"],
+        .auth-card input[type="password"],
+        .auth-card input[type="text"],
+        .auth-card select{
+            width:100%;
+            padding:13px;
+            border:1px solid #dbe3ea;
+            border-radius:12px;
+            margin-top:6px;
+            margin-bottom:15px;
+        }
 
-    input[type="checkbox"]{
-        width:18px !important;
-        height:18px !important;
-        padding:0 !important;
-        margin:0 8px 0 0 !important;
-    }
+        .auth-card input[type="checkbox"]{
+            width:16px !important;
+            height:16px !important;
+            margin-right:8px;
+        }
 
-    button{
-        margin-top:18px;
-        padding:12px 25px;
-        border:none;
-        border-radius:30px;
-        background:#0d6efd;
-        color:#fff;
-        font-weight:700;
-    }
-</style>
+        .auth-card label{
+            font-weight:600;
+            color:#1f2937;
+        }
+
+        .auth-card button{
+            background:#0d6efd;
+            color:white;
+            border:none;
+            padding:12px 28px;
+            border-radius:50px;
+            font-weight:700;
+        }
+
+        .auth-card a{
+            color:#0d6efd;
+        }
+    </style>
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
-                <a href="/">
-                    <img src="{{ asset('images/logo.png') }}"
-                        alt="SmartClinic Logo"
-                        style="width:90px; height:auto; margin-bottom:20px;">
-                </a>
-            </div>
+        <body class="auth-body">
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
+        <div class="auth-wrapper">
+
+            <a href="/">
+                <img src="{{ asset('images/logo.png') }}"
+                    class="auth-logo"
+                    alt="SmartClinic Logo">
+            </a>
+
+            <div class="auth-card">
                 {{ $slot }}
             </div>
+
         </div>
+
     </body>
 </html>
