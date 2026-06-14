@@ -1037,13 +1037,23 @@
                 background:
                     linear-gradient(
                         180deg,
-                        rgba(15, 31, 47, 0.55),
+                        rgba(15, 31, 47, 0.45),
                         rgba(15, 31, 47, 0.45)
                     ),
                     url('/images/hero6.jpg');
                 background-size: cover;
                 background-position: center top;
                 background-repeat: no-repeat;
+            }
+
+            .hero-section{
+                min-height:100vh;
+                background-position:center top !important;
+                background-size:cover !important;
+            }
+
+            .hero-section::before{
+                background:rgba(0,0,0,.45) !important;
             }
 
             .hero-content {

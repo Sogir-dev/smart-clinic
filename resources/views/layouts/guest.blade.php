@@ -23,63 +23,53 @@
         }
 
         .auth-wrapper{
-            min-height:100vh;
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            align-items:center;
-            padding:30px 15px;
-        }
-
-        .auth-logo{
-            width:85px;
-            height:auto;
-            margin-bottom:25px;
+            width:100%;
+            overflow-x:hidden;
         }
 
         .auth-card{
-            width:100%;
-            max-width:430px;
-            background:#fff;
-            padding:35px;
-            border-radius:18px;
-            box-shadow:0 20px 50px rgba(0,0,0,.08);
+            width:90% !important;
+            max-width:420px !important;
+            margin:0 auto !important;
+            box-sizing:border-box;
         }
 
         .auth-card input[type="email"],
         .auth-card input[type="password"],
         .auth-card input[type="text"],
         .auth-card select{
-            width:100%;
-            padding:13px;
-            border:1px solid #dbe3ea;
-            border-radius:12px;
-            margin-top:6px;
-            margin-bottom:15px;
+            width:100% !important;
+            box-sizing:border-box;
+        }
+
+        .auth-card .flex,
+        .auth-card .items-center,
+        .auth-card .justify-end{
+            display:flex;
+            flex-wrap:wrap;
+            gap:12px;
         }
 
         .auth-card input[type="checkbox"]{
             width:16px !important;
             height:16px !important;
-            margin-right:8px;
         }
 
-        .auth-card label{
-            font-weight:600;
-            color:#1f2937;
-        }
+        @media(max-width:576px){
+            .auth-card{
+                padding:25px 20px !important;
+                border-radius:20px !important;
+            }
 
-        .auth-card button{
-            background:#0d6efd;
-            color:white;
-            border:none;
-            padding:12px 28px;
-            border-radius:50px;
-            font-weight:700;
-        }
+            .auth-card button{
+                width:100%;
+                margin-top:15px;
+            }
 
-        .auth-card a{
-            color:#0d6efd;
+            .auth-card a{
+                display:block;
+                margin-bottom:10px;
+            }
         }
     </style>
     </head>
