@@ -1040,7 +1040,7 @@
                         rgba(15, 31, 47, 0.55),
                         rgba(15, 31, 47, 0.45)
                     ),
-                    url('/images/hero9.jpg');
+                    url('/images/hero6.jpg');
                 background-size: cover;
                 background-position: center top;
                 background-repeat: no-repeat;
