@@ -100,6 +100,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
+                                <th>Status</th>
                                 <th>Date Created</th>
                                 <th>Actions</th>
                             </tr>
@@ -130,6 +131,24 @@
                                                 {{ $user->role }}
                                             </span>
                                         @endif
+                                    </td>
+
+                                    <td>
+
+                                        @if($user->is_active)
+
+                                            <span class="badge bg-success">
+                                                Active
+                                            </span>
+
+                                        @else
+
+                                            <span class="badge bg-danger">
+                                                Disabled
+                                            </span>
+
+                                        @endif
+
                                     </td>
 
                                     <td>
