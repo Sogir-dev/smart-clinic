@@ -28,6 +28,12 @@
                     <a href="/department-routing" class="btn btn-success">Department Routing</a>
                     <a href="{{ route('admin.messages') }}" class="btn btn-warning">Messages</a>
                     <a href="/" class="btn btn-secondary">Back Home</a>
+
+                    @if(Auth::user()->role === 'admin')
+                        <a href="/staff" class="btn btn-info text-white">
+                            Staff Management
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>

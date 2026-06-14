@@ -60,6 +60,84 @@ Route::middleware('auth')->group(function () {
             'popularDepartment',
             'upcomingAppointments',
         ));    })->name('dashboard');
+
+        Route::get('/staff', function () {
+
+            if (auth()->user()->role !== 'admin') {
+                abort(403);
+            }
+
+            $search = request('search');
+
+            $staff = \App\Models\User::when($search, function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%")
+                    ->orWhere('role', 'like', "%{$search}%");
+            })
+            ->latest()
+            ->get();
+
+            $totalStaff = \App\Models\User::count();
+            $totalDoctors = \App\Models\User::where('role', 'doctor')->count();
+            $totalNurses = \App\Models\User::where('role', 'nurse')->count();
+            $totalFrontDesk = \App\Models\User::where('role', 'front_desk')->count();
+
+            return view('staff.index', compact(
+                'staff',
+                'totalStaff',
+                'totalDoctors',
+                'totalNurses',
+                'totalFrontDesk'
+            ));
+
+        });
+
+        Route::get('/staff/{id}/edit', function ($id) {
+
+            if (auth()->user()->role !== 'admin') {
+                abort(403);
+            }
+
+            $staff = \App\Models\User::findOrFail($id);
+
+            return view('staff.edit', compact('staff'));
+
+        });
+
+        Route::post('/staff/{id}/update', function ($id) {
+
+            if (auth()->user()->role !== 'admin') {
+                abort(403);
+            }
+
+            $staff = \App\Models\User::findOrFail($id);
+
+            $staff->name = request('name');
+            $staff->email = request('email');
+            $staff->role = request('role');
+            $staff->save();
+
+            return redirect('/staff')->with('success', 'Staff updated successfully.');
+
+        });
+
+        Route::get('/staff/{id}/toggle-status', function ($id) {
+
+            if (auth()->user()->role !== 'admin') {
+                abort(403);
+            }
+
+            if (auth()->id() == $id) {
+                return back()->with('error', 'You cannot disable your own account.');
+            }
+
+            $staff = \App\Models\User::findOrFail($id);
+            $staff->is_active = !$staff->is_active;
+            $staff->save();
+
+            return back()->with('success', 'Staff status updated successfully.');
+
+        });
         Route::post('/appointments/{id}/doctor-notes', function ($id) {
             $appointment = Appointment::findOrFail($id);
 
